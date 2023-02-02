@@ -3,5 +3,8 @@ from . import views
 
 
 urlpatterns = [
-    path("", views.city, name="city"),
+    path("", views.home, name="home"),
+    path("city", views.city, name="city"),
+
+
 ]

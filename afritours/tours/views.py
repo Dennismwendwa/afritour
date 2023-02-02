@@ -6,3 +6,8 @@ from django.urls import path
 def city (request):
 
     return render(request, 'tours/index.html')
+
+
+def home (request):
+
+    return render(request, 'tours/home.html')
