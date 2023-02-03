@@ -1,0 +1,32 @@
+
+{% extends 'accounts/layout.html'%}
+{% load static %}
+
+
+{% block title %}
+login
+{% endblock %}
+
+{% block main %}
+     <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+         
+        <input type="text" name="username" placeholder="username" required ><br>
+        <input type= "password" name="password" placeholder="password" required ><br>
+        <input type="submit">
+
+     </form>
+     <br>
+     <br>
+
+     <div>
+        {% for message in messages %}
+            <h3>{{message}}</h3>
+        {% endfor %}
+     </div>
+
+
+
+
+
+{% endblock %}

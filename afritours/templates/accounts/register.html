@@ -1,0 +1,47 @@
+{% extends 'accounts/layout.html'%}
+{% load static %}
+    
+{% block title %}
+register
+{% endblock %}
+   
+{% block main %}
+     <form action="{% url 'register'%}" method="post">
+        {% csrf_token%}
+
+        <label name="first_name">First name: </label><br>
+        <input type="text" name="first_name" placeholder="first name" required ><br>
+
+        <label name="last_name">Last name: </label><br>
+        <input type="text" name="last_name" placeholder="last name" required ><br>
+
+        <label name="username">Username: </label><br>
+        <input type="text" name="username" placeholder="username" required ><br>
+
+        <label name="email">Email: </label><br>
+        <input type="email" name="email" placeholder="Email" required ><br>
+
+        <label name="password1"> Password: </label><br>
+        <input type="password" name="password1" placeholder="Password" required ><br>
+
+        <label name="password2"> confirm Password: </label><br>
+        <input type="password" name="password2" placeholder="confirm Password" required ><br>
+
+        <input type="submit">
+     </form>
+     <br>
+     <br>
+     <div>
+        {% for message in messages %}
+
+        <h1>{{message}}</h1>
+
+        {% endfor %}
+
+        <h4>Do you have any account already?, <span><a href="{% url 'login' %}">Login</a></span></h4>
+     </div>
+
+
+
+
+{% endblock %}
