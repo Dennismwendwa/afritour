@@ -41,7 +41,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="{% url 'city'%}" class="logo d-flex align-items-center">
+      <a href="{% url 'home'%}" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>Afritours</h1>
@@ -108,6 +108,15 @@
   </header><!-- End Header -->
 
   <main id="main">
+
+
+    {% for object in object %}
+        {{object.author}}
+        {{object.body}}
+        {{object.title}}
+
+    {% endfor %}
+
 
     <!-- ======= Hero Slider Section ======= -->
     <section id="hero-slider" class="hero-slider">
