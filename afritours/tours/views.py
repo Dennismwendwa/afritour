@@ -9,10 +9,6 @@ def city (request):
 
     #object = Post.objects.all()
 
-    
-    
-
-
     return render(request, 'tours/index.html', {})
 
 
@@ -22,11 +18,13 @@ def home (request):
     main_sub = Post.objects.get(pk=4)
     shimba = Post.objects.get(pk=10)
     park = Post.objects.get(pk=11)
-    titles = Post.objects.all()
+    titles = Post.objects.all()[0:8]
+    slides = Post.objects.all()[7:13]
 
     
 
-    return render(request, 'tours/home.html', {'main': main, 'main_sub': main_sub, 'titles': titles, 'shimba': shimba, 'park': park}) 
+    return render(request, 'tours/home.html', {'main': main, 'main_sub': main_sub, 'titles': titles, 'shimba': shimba, 'park': park,
+                   'slides':slides}) 
 
 
 
