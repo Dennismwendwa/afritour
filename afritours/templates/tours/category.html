@@ -1,0 +1,26 @@
+{% extends 'tours/index.html' %}
+{% load static %}
+
+{% block title %}
+  Categories
+{% endblock %}
+
+{% block main %}
+<h1>{{category}}</h1>
+   this is categories.
+
+   {% for post in category_posts %}
+   <li>{{post.author.first_name}}  - {{post.post_date}} - {{post.category}} </li>
+   <hr>
+   <div>
+            
+    <img src="{{post.image.url}}" alt="" class="">
+    {{post.body}}
+    </div>
+
+    br>
+    <br>
+    <a href="{% url 'home' %}">Back</a>
+
+   {% endfor %}
+{% endblock %}

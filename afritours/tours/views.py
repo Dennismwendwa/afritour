@@ -38,9 +38,14 @@ class Allposts(ListView):
     ordering = ['-post_date']
     #ordering = ['-id']
 
-
-
-
 class DetailView(DetailView):
     model = Post
     template_name = 'tours/detail.html'
+
+def CategoryView(request, cate):
+    category_posts = Post.objects.filter(category=cate)
+
+    return render(request, 'tours/category.html', {'cate': cate,
+        'category_posts': category_posts,
+
+        })
