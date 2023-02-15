@@ -50,11 +50,12 @@
           <li class="dropdown"><a href="category.html"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
 
+              {% for item in category %}
+              <li><a href="#">{{item.name}} 1</a></li>
+              {% endfor %}
+
               <ul>
-                {% for category in categories %}
-                <li><a href="#">{{category.name}} 1</a></li>
-                {% endfor %}
-              
+               
               </ul>
              <!--<li><a href="#">Drop Down 1</a></li>-->
               <!--li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a></li>-->
@@ -121,7 +122,7 @@
                 {% for object in slides %}
 
                 <div class="swiper-slide">
-                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url({% static 'assets/img/slide4.jpg'%});">
+                  <a href="{% url 'article_detail' object.pk %}" class="img-bg d-flex align-items-end" style="background-image: url({% static 'assets/img/slide1.jpg'%});">
                     <div class="img-bg-inner">
                       <h2>{{object.title}}</h2>
                       <p>{{object.body|slice:"0:200" }}</p>
@@ -272,6 +273,7 @@
 
         <div class="section-header d-flex justify-content-between align-items-center mb-5">
           <h2>Cities</h2>
+          <li><a href="{% url 'allposts'%}">All Articles</a></li>
           <div><a href="category.html" class="more">All Categories</a></div>
         </div>
 
@@ -286,7 +288,7 @@
               </a>
               <div>
                 <div class="post-meta"><span class="date">{{main_sub.category }}</span> <span class="mx-1">&bullet;</span> <span>{{main.post_date}}</span></div>
-                <h3><a href="single-post.html">{{main.title }}</a></h3>
+                <h3><a href="{% url 'article_detail' main.pk %}">{{main.title }}</a></h3>
                 <p>{{main.body }}</p>
                 <div class="d-flex align-items-center author">
                   <div class="photo"><img src="{{main.image}}" alt="" class="img-fluid"></div>
@@ -302,14 +304,14 @@
                 <div class="post-entry-1 border-bottom">
                   <a href="single-post.html"><img src="{{shimba.image.url}}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">{{shimba.category}}</span> <span class="mx-1">&bullet;</span> <span>{{shimba.post_date}}</span></div>
-                  <h2 class="mb-2"><a href="single-post.html">{{shimba.title}}</a></h2>
+                  <h2 class="mb-2"><a href="{% url 'article_detail' shimba.pk %}">{{shimba.title}}</a></h2>
                   <span class="author mb-3 d-block">{{shimba.author.first_name}}</span>
                   <p class="mb-4 d-block">{{shimba.body|slice:"0:250"}}</p>
                 </div>
 
                 <div class="post-entry-1">
                   <div class="post-meta"><span class="date">{{park.category}}</span> <span class="mx-1">&bullet;</span> <span>{{park.post_date}}</span></div>
-                  <h2 class="mb-2"><a href="single-post.html">{{park.title}}</a></h2>
+                  <h2 class="mb-2"><a href="{% url 'article_detail' park.pk %}">{{park.title}}</a></h2>
                   <span class="author mb-3 d-block">{{park.author.first_name}}</span>
                 </div>
               </div>
@@ -317,7 +319,7 @@
                 <div class="post-entry-1">
                   <a href="single-post.html"><img src="{{main_sub.image.url}}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">{{main_sub.category}}</span> <span class="mx-1">&bullet;</span> <span>{{main_sub.post_date}}</span></div>
-                  <h2 class="mb-2"><a href="single-post.html">{{main_sub.title}}</a></h2>
+                  <h2 class="mb-2"><a href="{% url 'article_detail' main_sub.pk %}">{{main_sub.title}}</a></h2>
                   <span class="author mb-3 d-block">{{main_sub.author.first_name}}</span>
                   <p class="mb-4 d-block">{{main_sub.body|slice:"0:200" }}</p>  <h1>
                 </div>
@@ -330,7 +332,7 @@
                 
                <div class="post-entry-1 border-bottom">
                   <div class="post-meta"><span class="date">{{item.category}}</span> <span class="mx-1">&bullet;</span> <span>{{item.post_date}}</span></div>
-                  <h2 class="mb-2">{{item.title}}<a href="single-post.html"></a></h2>
+                  <h2 class="mb-2"><a href="{% url 'article_detail' item.pk %}">{{item.title}}</a></h2>
                   <span class="author mb-3 d-block">{{item.author.first_name}}</span>
                </div>
                  
