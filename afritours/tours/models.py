@@ -8,7 +8,7 @@ from django.urls import reverse
 
 class Category(models.Model):
 
-    name = models.CharField(max_length=250)
+    name = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
@@ -27,7 +27,7 @@ class Post (models.Model):
     post_date = models.DateField(auto_now_add=True)
     image = models.ImageField(null=True, blank=True, upload_to='tours/image')
     country = models.CharField(max_length=250, null=True, blank=True)
-    category = models.ForeignKey(Category, related_name='posts', on_delete=models.CASCADE, blank=True, null=True)
+    category = models.ForeignKey('Category', blank=True, null=True, on_delete=models.SET_NULL)
 
     
 

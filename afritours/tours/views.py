@@ -43,9 +43,10 @@ class DetailView(DetailView):
     template_name = 'tours/detail.html'
 
 def CategoryView(request, cats):
-    category_posts = Category.objects.filter(name=cats)
+    category_posts = Post.objects.filter(category=cats)
 
     return render(request, 'tours/category.html', {
         'category_posts': category_posts,
+        'cats': cats,
 
         })

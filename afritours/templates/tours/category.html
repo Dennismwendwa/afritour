@@ -3,27 +3,34 @@
 
 {% block title %}
 
-  Categories
+  {{post.title_tag}}
 {% endblock %}
 
 {% block main %}
-          <h1>This is categories.</div>
 
    
    <div class="mt-6 px-6 py-12 bg-grey-100 rounded-xl">
-    <h2>Categories</h2>
+
+    
+    {% if category_posts %}
+
+    <h2>{{cats}}</h2>
+    <br>
 
     <div class="grid grid-cols-5 gap-3">
+      
       {% for post in category_posts %}
+      <h1>{{post.title}}</h1>
+      <hr>
 
-      <div>
-        <a href="#">
-          <div class="p-6 bg-green rounded-b-xl">
-            <h2 class="text-2xl">{{post.name}}</h2>
+      <li>{{post.author.first_name}}  - {{post.post_date}} </li>
+        <hr>
+        <div>
+            
+            <img src="{{post.image.url}}" alt="" class="">
+            {{post.body}}
+        </div>
 
-          </div>
-        </a>
-      </div>
 
       {% endfor %}
     </div>
@@ -31,5 +38,10 @@
    
    <br>
    <a href="{% url 'home' %}">Back</a>
+    
+     {% else %}
+  
+     <h3> Sorry, This page does not exits. </h3>
 
+     {% endif %}
 {% endblock %}
