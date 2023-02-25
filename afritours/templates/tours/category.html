@@ -2,25 +2,34 @@
 {% load static %}
 
 {% block title %}
+
   Categories
 {% endblock %}
 
 {% block main %}
-<h1>{{category}}</h1>
-   this is categories.
+          <h1>This is categories.</div>
 
-   {% for post in category_posts %}
-   <li>{{post.author.first_name}}  - {{post.post_date}} - {{post.category}} </li>
-   <hr>
-   <div>
-            
-    <img src="{{post.image.url}}" alt="" class="">
-    {{post.body}}
+   
+   <div class="mt-6 px-6 py-12 bg-grey-100 rounded-xl">
+    <h2>Categories</h2>
+
+    <div class="grid grid-cols-5 gap-3">
+      {% for post in category_posts %}
+
+      <div>
+        <a href="#">
+          <div class="p-6 bg-green rounded-b-xl">
+            <h2 class="text-2xl">{{post.name}}</h2>
+
+          </div>
+        </a>
+      </div>
+
+      {% endfor %}
     </div>
+   </div>
+   
+   <br>
+   <a href="{% url 'home' %}">Back</a>
 
-    br>
-    <br>
-    <a href="{% url 'home' %}">Back</a>
-
-   {% endfor %}
 {% endblock %}
