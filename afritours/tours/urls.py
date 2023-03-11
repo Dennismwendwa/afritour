@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import DetailView, Allposts, CategoryView
+from .views import DetailView, Allposts, CatListview
 from . import views
 
 
@@ -10,6 +10,6 @@ urlpatterns = [
     path("city", views.city, name="city"),
     path("article/<int:pk>", DetailView.as_view(), name="article_detail"),
     path("post", Allposts.as_view(), name="allposts"),
-    path("category", CategoryView, name="category"),
+    path("category/<category>", CatListview.as_view(), name="category"),
 
 ]
