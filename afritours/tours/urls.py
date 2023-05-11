@@ -13,3 +13,4 @@ urlpatterns = [
     path("category/<category>", CatListview.as_view(), name="category"),
 
 ]
+

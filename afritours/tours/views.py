@@ -9,6 +9,7 @@ def city (request):
     return render(request, 'tours/index.html', {})
 
 
+
 def home (request):
 
     main = Post.objects.get(pk=2)
