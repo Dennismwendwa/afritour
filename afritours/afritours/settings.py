@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 CSRF_TRUSTED_ORIGINS = ['https://afritour.up.railway.app']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -127,7 +127,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
+#TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -143,13 +144,13 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR / 'static')
 ] 
 
-STATIC_ROOT = os.path.join(BASE_DIR / 'assets/')
+#STATIC_ROOT = os.path.join(BASE_DIR / 'assets/')
 
 
-
+from whitenoise.storage import CompressedManifestStaticFilesStorage
 STATIC_ROOT = BASE_DIR / "staticfiles"
-#STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+#STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 
 MEDIA_URL = '/media/'
