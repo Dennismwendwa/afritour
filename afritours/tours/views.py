@@ -1,6 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse, redirect
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView
-from .models import Post
+from .models import Post, Category
+from django.contrib.auth.models import User
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -15,16 +20,19 @@ def home(request):
 
     main = Post.objects.get(pk=2)
     main_sub = Post.objects.get(pk=4)
-    shimba = Post.objects.get(pk=4)
+    shimba = Post.objects.get(pk=6)
     park = Post.objects.get(pk=5)
     titles = Post.objects.all()[0:5]
     slides = Post.objects.all()[2:5]
 
-    return render(request, 'tours/home.html', {'main': main, 'main_sub': main_sub, 'titles': titles,
-                                               'shimba': shimba,
-                                               'park': park,
-                                               'slides': slides,
-                                               })
+    return render(request, 'tours/home.html', {
+		    'main': main,
+		    'main_sub': main_sub,
+		    'titles': titles,
+                    'shimba': shimba,
+                    'park': park,
+                    'slides': slides,
+  })
 
 
 class Allposts(ListView):
@@ -39,12 +47,12 @@ class DetailView(DetailView):
     template_name = 'tours/detail.html'
 
 
-class CatListview(ListView):
-    template_name = 'category.html'
-    context_object_name = 'catlist'
+def category(request, pk):
 
-    def get_queryset(self):
-        content = {
-            'cat': self.kwargs['category'],
-            'posts': Post.objects.filter(category=self.kwargs)
-        }
+	category = get_object_or_404(Category, pk=pk)
+	blog = Post.objects.filter(category=categoy)
+    
+	return render(request, "tours/category.html", {
+			"category": category,
+			"blog": blog,
+			})
