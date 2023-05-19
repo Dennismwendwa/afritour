@@ -24,6 +24,8 @@ def home(request):
     park = Post.objects.get(pk=5)
     titles = Post.objects.all()[0:5]
     slides = Post.objects.all()[2:5]
+    recent = Post.objects.all()[:5]
+    print(slides)
 
     return render(request, 'tours/home.html', {
 		    'main': main,
@@ -32,6 +34,7 @@ def home(request):
                     'shimba': shimba,
                     'park': park,
                     'slides': slides,
+		    'recent': recent,
   })
 
 

@@ -1,3 +1,4 @@
 .env
 mysite.log
 db.sqlite3
+mysite.log
