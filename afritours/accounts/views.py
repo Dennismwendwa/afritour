@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
-from tours.models import Category
+from tours.models import Category, Post
 from tours.views import category_fun
+from .forms import ContactForm
+from .models import Contact
+from datetime import date
 
 
 # Create your views here.
@@ -81,6 +84,41 @@ def aboutus(request):
 	return render(request, "accounts/aboutus.html", {
 			"cats": cats,
 			})
+
+def contant(request):
+
+	recent = Post.objects.all()[:5]
+	cats = category_fun()
+
+	if request.method == "POST":	
+		form = ContactForm(request.POST)
+		if form.is_valid():
+			name = form.cleaned_data["name"]
+			email = form.cleaned_data["email"]
+			feedback = form.cleaned_data["feedback"]
+			message = form.cleaned_data["message"]
+			date = form.cleaned_data["date"]
+			
+			try:
+				contact = Contact.objects.create(name=name, email=email,
+						feedback=feedback, message=message, date=date)
+				contact.save();
+				messages.success(request, "Your message was send successfully. Thank you!")
+				return redirect("contant");
+			except Exception as e:
+				messages.info(request, "Sending message failed. Please try again")
+				return redirect("contant")
+
+	else:
+		form = ContactForm()
+
+	return render(request, "accounts/contant.html", {
+			"form": form,
+			"cats": cats,
+			"recent": recent,
+			})
+
+
 
 
 

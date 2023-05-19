@@ -1,6 +1,6 @@
 {% extends 'tours/layout.html'%} {% load static %} {% block title %} All posts
 {% endblock %} {% block main %} {% for post in object_list %}
-<div>
+<div class="container detail_post">
   <ul>
     <h1>{{post.title}}</h1>
     <br />

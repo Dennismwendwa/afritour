@@ -2,3 +2,4 @@
 mysite.log
 db.sqlite3
 ../tour/
+../.vscode/

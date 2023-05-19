@@ -1,0 +1,22 @@
+{% extends "tours/layout.html" %}
+{% load static %}
+
+{% block contant %}
+
+
+ <form action="{% url 'contant' %}" method="post">
+	 <p class="h4 mb-4">Contact us</p>
+{% csrf_token %}
+
+{{form}}
+
+ <div class="text-center"><button type="submit">Send Message</button></div>
+
+ {% for message in messages %}
+  <div class="sent-message">{{message}}</div>
+  {% endfor %}
+
+    </form>
+
+
+{% endblock %}

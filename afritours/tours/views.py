@@ -45,6 +45,7 @@ class Allposts(ListView):
     template_name = 'tours/allposts.html'
     ordering = ['-post_date']
     # ordering = ['-id']
+    
 
 
 class DetailView(DetailView):
@@ -56,11 +57,14 @@ def category(request, pk):
 
 	category = get_object_or_404(Category, pk=pk)
 	posts = Post.objects.filter(category=category)
+
+	cats = category_fun()
     	
 	
 	return render(request, "tours/category.html", {
 			"category": category,
 			"posts": posts,
+			"cats": cats,
 			})
 
 
