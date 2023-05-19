@@ -1,10 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
+from tours.models import Category
+from tours.views import category_fun
 
 
 # Create your views here.
 def register (request):
+
+    cats = Category.objects.all()
 
     if request.method == 'POST':
         
@@ -25,7 +29,8 @@ def register (request):
                 return redirect('register')
 
             else:
-                user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username, password=password1, email=email )
+                user = User.objects.create_user(first_name=first_name, last_name=last_name,
+				username=username, password=password1, email=email )
                 user.save();
                 return redirect('/')
                 
@@ -34,11 +39,16 @@ def register (request):
             return redirect('register')
 
     else:
-        return render(request, 'accounts/register.html')
+        return render(request, 'accounts/register.html', {
+			"cats": cats,
+			})
 
 def login (request):
-
-
+  
+    cats = category_fun()
+    
+    print(cats)
+  
     if request.method == 'POST':
 
         username = request.POST['username']
@@ -55,8 +65,25 @@ def login (request):
     else:
         return render(request, 'accounts/login.html')
 
-    return render(request, 'accounts/login.html')
+    return render(request, 'accounts/login.html', {
+		    "cats": cats,
+		    })
 
 def logout (request):
     auth.logout(request)
     return redirect('/')
+
+
+def aboutus(request):
+
+	cats = category_fun()
+
+	return render(request, "accounts/aboutus.html", {
+			"cats": cats,
+			})
+
+
+
+
+
+
