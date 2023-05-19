@@ -49,31 +49,34 @@
           <!--<li><a href="search-result.html">Search Result</a></li>-->
           <li><a href="{% url 'allposts'%}">Blog</a></li>
           
-          <li class="dropdown">
-              <!--you can add link to all category-->
-              <a href=""
+           <li class="dropdown">
+              <a href="category.html"
                 ><span>Categories</span>
                 <i class="bi bi-chevron-down dropdown-indicator"></i
               ></a>
-
               <ul>
-                <!--<li><a href="#">Drop Down 1</a></li>-->
+      
+                {% for items in cats %}
+                <li><a href="{% url 'category' items.pk %}">{{items.name}}</a></li>
+                {% endfor %}
+                <!--
+                <li><a href="#">Drop Down 1</a></li>
                 <li class="dropdown">
-                  <!--
+                  <a href="#"
+                    ><span>Deep Drop Down</span>
+                    <i class="bi bi-chevron-down dropdown-indicator"></i
+                  ></a>
                   <ul>
                     <li><a href="#">Deep Drop Down 1</a></li>
-                  </ul>-->
-                </li>
-
-                {% for item in cats %}
-                <li>
-                  <a href="{% url 'category'%}">{{item.name }}</a>
-                </li>
-                {% endfor %}
+                    
+                  </ul>
+                </li>-->
+                <!--<li><a href="#">Drop Down 2</a></li>-->
+                
               </ul>
             </li>
 
-          <li><a href="about.html">About</a></li>
+          <li><a href="{% url 'aboutus' %}">About</a></li>
           <li><a href="contact.html">Contact</a></li>
 
           {% if user.is_authenticated %}
@@ -350,7 +353,7 @@
                 <div class="post-entry-1 border-bottom">
                   <a href="single-post.html"><img src="{{shimba.image.url}}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">{{shimba.category}}</span> <span class="mx-1">&bullet;
-		  </span> <span>{{shimba.post_date}}</span></div>
+		              </span> <span>{{shimba.post_date}}</span></div>
                   <h2 class="mb-2"><a href="{% url 'article_detail' shimba.pk %}">{{shimba.title}}</a></h2>
                   <span class="author mb-3 d-block">{{shimba.author.first_name}}</span>
                   <p class="mb-4 d-block">{{shimba.body|slice:"0:250"}}</p>
@@ -358,7 +361,7 @@
 
                 <div class="post-entry-1">
                   <div class="post-meta"><span class="date">{{park.category}}</span> 
-		  <span class="mx-1">&bullet;</span> <span>{{park.post_date}}</span></div>
+		              <span class="mx-1">&bullet;</span> <span>{{park.post_date}}</span></div>
                   <h2 class="mb-2"><a href="{% url 'article_detail' park.pk %}">{{park.title}}</a></h2>
                   <span class="author mb-3 d-block">{{park.author.first_name}}</span>
                 </div>
@@ -367,7 +370,7 @@
                 <div class="post-entry-1">
                   <a href="single-post.html"><img src="{{main_sub.image.url}}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">{{main_sub.category}}</span>
-		  <span class="mx-1">&bullet;</span> <span>{{main_sub.post_date}}</span></div>
+		              <span class="mx-1">&bullet;</span> <span>{{main_sub.post_date}}</span></div>
                   <h2 class="mb-2"><a href="{% url 'article_detail' main_sub.pk %}">{{main_sub.title}}</a></h2>
                   <span class="author mb-3 d-block">{{main_sub.author.first_name}}</span>
                   <p class="mb-4 d-block">{{main_sub.body|slice:"0:200" }}</p>  <h1>
@@ -381,7 +384,7 @@
                 
                <div class="post-entry-1 border-bottom">
                   <div class="post-meta"><span class="date"><a href="">{{item.category}}</a></span>
-		  <span class="mx-1">&bullet;</span> <span>{{item.post_date}}</span></div>
+		              <span class="mx-1">&bullet;</span> <span>{{item.post_date}}</span></div>
                   <h2 class="mb-2"><a href="{% url 'article_detail' item.pk %}">{{item.title}}</a></h2>
                   <span class="author mb-3 d-block">{{item.author.first_name}}</span>
                </div>
@@ -441,7 +444,6 @@
               <li><a href="{% url 'home' %}"><i class="bi bi-chevron-right"></i> Home</a></li>
               <li><a href="{% url 'allposts' %}"><i class="bi bi-chevron-right"></i> Blog</a></li>
               <li><a href=""><i class="bi bi-chevron-right"></i> Categories</a></li>
-              <li><a href=""><i class="bi bi-chevron-right"></i> Single Post</a></li>
               <li><a href=""><i class="bi bi-chevron-right"></i> About us</a></li>
               <li><a href=""><i class="bi bi-chevron-right"></i> Contact</a></li>
             </ul>
@@ -449,10 +451,10 @@
           <div class="col-6 col-lg-2">
             <h3 class="footer-heading">Categories</h3>
             <ul class="footer-links list-unstyled">
-              <li><a href=""><i class="bi bi-chevron-right"></i> Culture</a></li>
-              <li><a href=""><i class="bi bi-chevron-right"></i> Sport</a></li>
-              <li><a href=""><i class="bi bi-chevron-right"></i> Food</a></li>
-              <li><a href=""><i class="bi bi-chevron-right"></i> Travel</a></li>
+
+               {% for items in cats %}
+                <li><a href="{% url 'category' items.pk %}">{{items.name}}</a></li>
+               {% endfor %}
 
             </ul>
           </div>

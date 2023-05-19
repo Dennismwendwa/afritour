@@ -1,31 +1,21 @@
-{% extends 'tours/index.html'%}
-{% load static %}
+{% extends 'tours/layout.html'%} {% load static %} {% block title %} {{
+item.title }} {% endblock %} {% block main %}
 
-{% block title %}
-  {{ item.title }}
-{% endblock %}
-
-
-{% block main %}
-  
 <div>
-    <ul>
-        <h1>{{post.title}}</h1>
-        <br>
-        <li>{{post.author.first_name}}  - {{post.post_date}} - {{post.category}} </li>
-        <hr>
-        <div>
-            
-            <img src="{{post.image.url}}" alt="" class="">
-            {{post.body}}
-        </div>
+  <ul>
+    <h1>{{post.title}}</h1>
+    <br />
+    <li>{{post.author.first_name}} - {{post.post_date}} - {{post.category}}</li>
+    <hr />
+    <div>
+      <img src="{{post.image.url}}" alt="" class="" />
+      {{post.body}}
+    </div>
 
-        <br>
-        <br>
-        <a href="{% url 'home' %}">Back</a>
-
-
-    </ul>
+    <br />
+    <br />
+    <a href="{% url 'home' %}">Back</a>
+  </ul>
 </div>
 
 {% endblock %}

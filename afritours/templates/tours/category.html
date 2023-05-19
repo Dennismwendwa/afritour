@@ -1,47 +1,36 @@
-{% extends 'tours/index.html' %}
-{% load static %}
+{% extends 'tours/layout.html' %} {% load static %} {% block title %}
+{{post.title_tag}} {% endblock %} {% block main %}
 
-{% block title %}
+<div class="mt-6 px-6 py-12 bg-grey-100 rounded-xl">
+  {% if posts %}
 
-  {{post.title_tag}}
-{% endblock %}
+  <h2>{{category}}</h2>
+  <br />
 
-{% block main %}
+  <div class="grid grid-cols-5 gap-3">
+    {% for post in posts %}
+    <h1>{{post.title}}</h1>
+    <hr />
 
-   
-   <div class="mt-6 px-6 py-12 bg-grey-100 rounded-xl">
-
-    
-    {% if category_posts %}
-
-    <h2>{{cats}}</h2>
-    <br>
-
-    <div class="grid grid-cols-5 gap-3">
-      
-      {% for post in category_posts %}
-      <h1>{{post.title}}</h1>
-      <hr>
-
-      <li>{{post.author.first_name}}  - {{post.post_date}} </li>
-        <hr>
-        <div>
-            
-            <img src="{{post.image.url}}" alt="" class="">
-            {{post.body}}
-        </div>
-
-
-      {% endfor %}
+    <li>{{post.author.first_name}} - {{post.post_date}}</li>
+    <hr />
+    <div>
+      <img src="{{post.image.url}}" alt="" class="" />
+      {{post.body}}
+      <br />
+      <br />
+      <br />
     </div>
-   </div>
-   
-   <br>
-   <a href="{% url 'home' %}">Back</a>
-    
-     {% else %}
-  
-     <h3> Sorry, This page does not exits. </h3>
 
-     {% endif %}
-{% endblock %}
+    {% endfor %}
+  </div>
+</div>
+
+<br />
+<a href="{% url 'home' %}">Back</a>
+
+{% else %}
+
+<h3>Sorry, This page does not exits.</h3>
+
+{% endif %} {% endblock %}

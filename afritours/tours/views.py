@@ -25,8 +25,9 @@ def home(request):
     titles = Post.objects.all()[0:5]
     slides = Post.objects.all()[2:5]
     recent = Post.objects.all()[:5]
-    print(slides)
-
+	
+    cats = category_fun()
+  
     return render(request, 'tours/home.html', {
 		    'main': main,
 		    'main_sub': main_sub,
@@ -35,6 +36,7 @@ def home(request):
                     'park': park,
                     'slides': slides,
 		    'recent': recent,
+		    'cats': cats,
   })
 
 
@@ -53,9 +55,37 @@ class DetailView(DetailView):
 def category(request, pk):
 
 	category = get_object_or_404(Category, pk=pk)
-	blog = Post.objects.filter(category=categoy)
-    
+	posts = Post.objects.filter(category=category)
+    	
+	
 	return render(request, "tours/category.html", {
 			"category": category,
-			"blog": blog,
+			"posts": posts,
 			})
+
+
+def category_fun():
+
+	cats = Category.objects.all()
+
+	return cats
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
