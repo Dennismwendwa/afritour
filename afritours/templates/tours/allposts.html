@@ -1,12 +1,5 @@
-{% extends 'tours/index.html'%} 
-{% load static %} 
-
-{% block title %}
-	All posts 
-{% endblock %}
-
-{% block main %} 
-	{% for post in object_list %}
+{% extends 'tours/layout.html'%} {% load static %} {% block title %} All posts
+{% endblock %} {% block main %} {% for post in object_list %}
 <div>
   <ul>
     <h1>{{post.title}}</h1>
@@ -14,7 +7,13 @@
     <li>{{post.author.first_name}} - {{post.post_date}} - {{post.category}}</li>
     <hr />
     <div>
-      <img src="{{post.image.url}}" alt="" class="" />
+      <img
+        src="{{post.image.url}}"
+        height="450px"
+        width="800px"
+        alt=""
+        class=""
+      />
       {{post.body}}
     </div>
 
