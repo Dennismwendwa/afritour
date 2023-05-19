@@ -322,7 +322,7 @@
         <div class="section-header d-flex justify-content-between align-items-center mb-5">
           <h2>Cities</h2>
           <li><a href="{% url 'allposts'%}">All Articles</a></li>
-          <div><a href="category.html" class="more">All Categories</a></div>
+          <div><a href="" class="more">All Categories</a></div>
         </div>
 
         <div class="row">
@@ -331,7 +331,7 @@
             <!--main post at home page-->
 
             <div class="d-lg-flex post-entry-2">
-              <a href="single-post.html" class="me-4 thumbnail d-inline-block mb-4 mb-lg-0">
+              <a href="{% url 'article_detail' main.pk %}" class="me-4 thumbnail d-inline-block mb-4 mb-lg-0">
                 <img src="{{main.image.url}}" alt="" class="img-fluid">
               </a>
               <div>
@@ -351,7 +351,7 @@
             <div class="row">
               <div class="col-lg-4">
                 <div class="post-entry-1 border-bottom">
-                  <a href="single-post.html"><img src="{{shimba.image.url}}" alt="" class="img-fluid"></a>
+                  <a href="{% url 'article_detail' shimba.pk %}"><img src="{{shimba.image.url}}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">{{shimba.category}}</span> <span class="mx-1">&bullet;
 		              </span> <span>{{shimba.post_date}}</span></div>
                   <h2 class="mb-2"><a href="{% url 'article_detail' shimba.pk %}">{{shimba.title}}</a></h2>
@@ -368,7 +368,8 @@
               </div>
               <div class="col-lg-8">
                 <div class="post-entry-1">
-                  <a href="single-post.html"><img src="{{main_sub.image.url}}" alt="" class="img-fluid"></a>
+                  <a href="{% url 'article_detail' main_sub.pk%}"><img src="{{main_sub.image.url}}" alt=""
+		  class="img-fluid"></a>
                   <div class="post-meta"><span class="date">{{main_sub.category}}</span>
 		              <span class="mx-1">&bullet;</span> <span>{{main_sub.post_date}}</span></div>
                   <h2 class="mb-2"><a href="{% url 'article_detail' main_sub.pk %}">{{main_sub.title}}</a></h2>

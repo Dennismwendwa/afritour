@@ -50,7 +50,7 @@ def login (request):
   
     cats = category_fun()
     
-    print(cats)
+
   
     if request.method == 'POST':
 
