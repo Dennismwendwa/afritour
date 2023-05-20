@@ -1,0 +1,36 @@
+{% extends "tours/layout.html" %} 
+{% load static %} 
+
+{% block title %}
+ Categories
+{% endblock %}
+
+{% block allcategory %}
+<div class="container">	
+{% for cat in category %}
+	<h2><a href="{% url 'category' cat.pk %}">Category {{cat.name}}</a></h2>
+	<hr>
+	<br>
+	<div class="row">
+	{% for post in posts %}
+		{% if post.category == cat %}
+		<div class="col-md-4">
+
+			<h4 class="text-center"><strong>
+			<a href="{% url 'article_detail' post.pk %}">{{ post.title }}</a></strong>
+			</h4>
+			<a href="{% url 'article_detail' post.pk%}">
+			<img src="{{post.image.url}}" height="400px" width= "400px" alt=""></a>
+			<p> <a href="{% url 'article_detail' post.pk %}">
+			{{post.body|slice:"0:200"}}</a></p>
+		</div>
+		{% endif %}
+	{% endfor %}
+	<br>
+	<hr>
+	<br>
+	<br>
+	</div>
+{% endfor %}
+<div>
+{% endblock %}

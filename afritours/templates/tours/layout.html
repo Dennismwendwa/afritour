@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>Afritours</title>
+    <title>Afritours </title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
@@ -17,12 +17,14 @@
     />
 
     <!-- Google Fonts -->
-    
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,
 	100;0,300;0,400;0,500;0,700;0,900;1,300;1,500;1,700;1,900&display=swap"
-	rel="stylesheet">
+      rel="stylesheet"
+    />
 
     <!-- Vendor CSS Files -->
     <link
@@ -58,7 +60,7 @@
         <a href="{% url 'home'%}" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="assets/img/logo.png" alt=""> -->
-          <h1>Afritours Home</h1>
+          <h1>Afritours</h1>
         </a>
 
         <nav id="navbar" class="navbar">
@@ -67,7 +69,7 @@
             <li><a href="{% url 'allposts'%}">Blog</a></li>
 
             <li class="dropdown">
-              <a href=""
+              <a href="{% url 'allcategory' %}"
                 ><span>Categories</span>
                 <i class="bi bi-chevron-down dropdown-indicator"></i
               ></a>
@@ -104,6 +106,7 @@
             <li><a href="{% url 'login'%}">login </a></li>
             <!--<li><a href="{% url 'logout'%}"> logout</a></li>-->
             {% endif %}
+            <li><a href="{% url 'search' %}">Search</a></li>
           </ul>
         </nav>
         <!-- .navbar -->
@@ -113,17 +116,24 @@
           <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
           <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
 
-          <a href="#" class="mx-2 js-search-open"
-            ><span class="bi-search"></span
-          ></a>
+        
           <i class="bi bi-list mobile-nav-toggle"></i>
 
           <!-- ======= Search Form ======= -->
           <div class="search-form-wrap js-search-form-wrap">
-            <form action="search-result.html" class="search-form">
+            <form action="{% url 'search' %}" class="search-form" method="post">
               <span class="icon bi-search"></span>
-              <input type="text" placeholder="Search" class="form-control" />
-              <button class="btn js-search-close">
+              <input
+                type="text"
+                name="search"
+                placeholder="Search"
+                class="form-control"
+              />
+              <button
+                class="btn js-search-close"
+                type="submit"
+                placeholder="Searchbutton"
+              >
                 <span class="bi-x"></span>
               </button>
             </form>
@@ -132,17 +142,40 @@
         </div>
       </div>
     </header>
-    <!-- End Header -->
-    <!-- End Header -->
 
     <main id="main">
+      <section>
+        <form action="{% url 'search' %}" class="search-form" method="get">
+          {% csrf_token %}
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-6">
+                <div class="input-group">
+                  <input
+                    type="search"
+                    name="search"
+                    class="form-control rounded"
+                    placeholder="Search"
+                    aria-label="Search"
+                    aria-describedby="search-addon"
+                    required
+                  />
+                  <button type="submit" class="btn btn-outline-primary">
+                    Search
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+
       <section id="post" class="posts">
         <div class="container">
           <div class="align-items-center">
-
             {% block main %} {% endblock %} {% block aboutus %} {% endblock %}
-
-	    {% block contant %} {% endblock %}
+            {% block contant %} {% endblock %} {% block search %} {% endblock %}
+	    {% block allcategory %} {% endblock %}
           </div>
         </div>
       </section>
@@ -157,31 +190,20 @@
             <div class="col-lg-4">
               <h3 class="footer-heading">About Afritours</h3>
               <p>
-                Welcome to our tours website, your ultimate destination for
-                unforgettable travel experiences! Whether you're a seasoned
-                globetrotter or a first-time adventurer, our website is your
-                gateway to exploring the world's most captivating destinations.
-                We curate a wide range of tours, catering to diverse interests,
-                budgets, and travel styles. From enchanting cultural expeditions
-                to thrilling outdoor adventures, our meticulously designed
-                itineraries ensure that every moment of your journey is filled
-                with awe and wonder. Discover hidden gems, immerse yourself in
-                local traditions, and create lifelong memories as you embark on
-                our expertly guided tours. With our user-friendly interface, you
-                can easily navigate through our extensive collection of
-                destinations, read detailed descriptions, view stunning photos,
-                and find the perfect tour that aligns with your dreams. Our team
-                of knowledgeable travel experts is dedicated to providing
-                unparalleled customer service, answering your queries, and
-                assisting you in crafting your ideal itinerary. Whether you're
-                longing to witness iconic landmarks, indulge in delectable
-                cuisines, or simply unwind on pristine beaches, our tours
-                website is your trusted companion in making your travel dreams a
-                reality. Start your adventure today and let us guide you towards
-                a world of discovery and exploration.
+	      Discover your next travel adventure on our website, where we
+	      showcase a variety of captivating destinations for you to
+	      explore. Whether you're a seasoned globetrotter or a first-time
+	      adventurer, we provide detailed descriptions, stunning photos,
+	      and recommendations for the best places to visit. Find hidden gems,
+	      immerse yourself in local traditions, and create unforgettable
+	      memories. Our user-friendly interface makes it easy to navigate
+	      through our extensive collection of destinations and find the
+	      perfect place for your next tour. Start your journey of discovery today!
               </p>
               <p>
-                <a href="{% url 'aboutus}" class="footer-link-more">Learn More</a>
+                <a href="{% url 'aboutus' %}" class="footer-link-more"
+                  >Learn More</a
+                >
               </p>
             </div>
             <div class="col-6 col-lg-2">
@@ -198,13 +220,13 @@
                   >
                 </li>
                 <li>
-                  <a href="category.html"
+                  <a href="{% url 'allcategory' %}"
                     ><i class="bi bi-chevron-right"></i> Categories</a
                   >
                 </li>
-                
+
                 <li>
-                  <a href="{% url 'aboutus' }"
+                  <a href="{% url 'aboutus' %}"
                     ><i class="bi bi-chevron-right"></i> About us</a
                   >
                 </li>
@@ -218,15 +240,11 @@
             <div class="col-6 col-lg-2">
               <h3 class="footer-heading">Categories</h3>
               <ul class="footer-links list-unstyled">
-
-		{% for items in cats %}
+                {% for items in cats %}
                 <li>
                   <a href="{% url 'category' items.pk %}">{{items.name}}</a>
                 </li>
-		{% endfor %}
-
-                
-
+                {% endfor %}
               </ul>
             </div>
 
@@ -236,9 +254,12 @@
               <ul class="footer-links footer-blog-entry list-unstyled">
                 {% for post in recent %}
                 <li>
-                  <a href="{% url 'article_detail' post.pk %}" class="d-flex align-items-center">
+                  <a
+                    href="{% url 'article_detail' post.pk %}"
+                    class="d-flex align-items-center"
+                  >
                     <img
-                      src="assets/img/post-sq-1.jpg"
+                      src="{{ post.image.url}}"
                       alt=""
                       class="img-fluid me-3"
                     />
@@ -267,7 +288,6 @@
                         <span class="mx-1"></span>
                         <span></span>
                       </div>
-                      <span</span>
                     </div>
                   </a>
                 </li>

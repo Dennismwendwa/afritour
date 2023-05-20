@@ -1,11 +1,11 @@
-
-
-
 .hello_user {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .detail_post {
-background: green;
+  background: green;
 }
 
+.custom-margin {
+  margin: 30px;
+}

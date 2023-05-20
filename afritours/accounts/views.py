@@ -12,6 +12,7 @@ from datetime import date
 def register (request):
 
     cats = Category.objects.all()
+    recent = Post.objects.all()[:5]
 
     if request.method == 'POST':
         
@@ -44,14 +45,14 @@ def register (request):
     else:
         return render(request, 'accounts/register.html', {
 			"cats": cats,
+			"recent": recent,
 			})
 
 def login (request):
   
     cats = category_fun()
-    
-
-  
+    recent = Post.objects.all()[:5]
+      
     if request.method == 'POST':
 
         username = request.POST['username']
@@ -66,7 +67,10 @@ def login (request):
         else:
             messages.info(request, 'Invalid credentials')
     else:
-        return render(request, 'accounts/login.html')
+        return render(request, 'accounts/login.html', {
+			"cats": cats,
+			"recent": recent,
+			})
 
     return render(request, 'accounts/login.html', {
 		    "cats": cats,
@@ -80,9 +84,11 @@ def logout (request):
 def aboutus(request):
 
 	cats = category_fun()
+	recent = Post.objects.all()[:5]
 
 	return render(request, "accounts/aboutus.html", {
 			"cats": cats,
+			"recent": recent,
 			})
 
 def contant(request):

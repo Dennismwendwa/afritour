@@ -6,6 +6,7 @@ from .models import Post, Category
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 # Create your views here.
 
@@ -40,17 +41,35 @@ def home(request):
   })
 
 
-class Allposts(ListView):
-    model = Post
-    template_name = 'tours/allposts.html'
-    ordering = ['-post_date']
-    # ordering = ['-id']
+def allposts(request):
+
+	posts = Post.objects.all()
+	cats = category_fun()
+	recent = Post.objects.all()[:5]
+	
+	return render(request, "tours/allposts.html", {
+			"posts": posts,
+			"cats": cats,
+			"recent": recent,
+			})
     
 
-
+"""
 class DetailView(DetailView):
     model = Post
     template_name = 'tours/detail.html'
+"""
+def detailview(request, pk):
+
+	post = get_object_or_404(Post, pk=pk)
+	cats = category_fun()
+	recent = Post.objects.all()[:5]
+
+	return render(request, "tours/detail.html", {
+			"post": post,
+			"cats": cats,
+			"recent": recent,
+			})
 
 
 def category(request, pk):
@@ -68,15 +87,55 @@ def category(request, pk):
 			})
 
 
+
+def allcategory(request):
+
+	category = category_fun()
+	posts = Post.objects.all()
+	cats = category_fun()
+	recent = Post.objects.all()[:5]
+
+	return render(request, "tours/category_all.html", {
+			"category": category,
+			"posts": posts,
+			"cats": cats,
+			"recent": recent,
+			})
+
 def category_fun():
+
 
 	cats = Category.objects.all()
 
 	return cats
 
+def each_category(pk):
+
+	categoreach = Post.objects.filter(category.pk==pk)
+
+	return categoryeach
 
 
 
+def search(request):
+
+	cats = category_fun()
+	recent = Post.objects.all()[:5]
+
+
+	query = request.GET.get('search')
+	results = []
+
+	if query and query.strip():
+		results = Post.objects.filter(
+				Q(body__icontains=query) | Q(title__icontains=query)
+				)
+
+
+	return render(request, "tours/search.html", {
+			"results": results,
+			"query": query,
+			})
 
 
 

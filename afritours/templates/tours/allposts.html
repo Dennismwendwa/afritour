@@ -1,25 +1,44 @@
-{% extends 'tours/layout.html'%} {% load static %} {% block title %} All posts
-{% endblock %} {% block main %} {% for post in object_list %}
+{% extends 'tours/layout.html'%}
+{% load static %} 
+
+{% block title %}
+	All posts
+{% endblock %}
+
+{% block main %}
 <div class="container detail_post">
+{% for post in posts %}
+<div>
   <ul>
-    <h1>{{post.title}}</h1>
+   <div class="d-flex justify-content-center"> <h1>{{post.title}}</h1></div>
     <br />
     <li>{{post.author.first_name}} - {{post.post_date}} - {{post.category}}</li>
     <hr />
     <div>
-      <img
+     <div class="d-flex justify-content-center"> 
+     <img
         src="{{post.image.url}}"
         height="450px"
         width="800px"
         alt=""
         class=""
       />
+      
+      </div>
+      <br>
+      <br>
       {{post.body}}
     </div>
 
     <br />
     <br />
-    <a href="{% url 'home' %}">Back</a>
+    <br>
+    <br>
   </ul>
 </div>
-{% endfor %} {% endblock %}
+{% endfor %} 
+<a href="{% url 'home' %}">Back</a>
+
+</div>
+
+{% endblock %}
