@@ -5,9 +5,9 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>Afritours</title>
-    <meta content="" name="description" />
-    <meta content="" name="keywords" />
+    <title>Afritours {% block title %} {%endblock%}</title>
+    <meta content="{% block content%} {% endblock%}" name="description" />
+    <meta content="{% block keywords%} {% endblock%}" name="keywords" />
 
     <!-- Favicons -->
     <link href="{% static 'assets/img/favicon.png' %}" rel="icon" />

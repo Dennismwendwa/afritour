@@ -1,15 +1,50 @@
-{% extends 'tours/layout.html'%} {% load static %} {% block title %} {{
-item.title }} {% endblock %} {% block main %}
+{% extends 'tours/layout.html'%} {% load static %} {% block keywords%}
+{%endblock%} {% block title %} {{item.title }} {% endblock %} {% block main %}
 
+<div>
+  <article>
+    <h1>{{ post.title }}</h1>
+    <br />
+    <p class="post-info">
+      {{ post.author.first_name }} {{ post.post_date }} - {{ post.category }}
+    </p>
+    <hr />
+    <div class="post-content">
+      <div class="d-flex justify-content-center">
+        <img
+          src="{{ post.image.url }}"
+          height="450px"
+          width="800px"
+          alt="{{ post.title }}"
+          class="post-image"
+        />
+      </div>
+      <div class="post-body">{{ post.body }}</div>
+    </div>
+
+    <br />
+    <br />
+    <a href="{% url 'home' %}" class="back-link">Back</a>
+  </article>
+</div>
+
+<!--
 <div>
   <ul>
     <h1>{{post.title}}</h1>
     <br />
     <li>{{post.author.first_name}} - {{post.post_date}} - {{post.category}}</li>
     <hr />
-    <div >
-     <div class="d-flex justify-content-center">
-     <img src="{{post.image.url}}" height="450px" width="800px" alt="" class="" /></div>
+    <div>
+      <div class="d-flex justify-content-center">
+        <img
+          src="{{post.image.url}}"
+          height="450px"
+          width="800px"
+          alt=""
+          class=""
+        />
+      </div>
       <div>{{post.body}}</div>
     </div>
 
@@ -17,6 +52,6 @@ item.title }} {% endblock %} {% block main %}
     <br />
     <a href="{% url 'home' %}">Back</a>
   </ul>
-</div>
+</div>-->
 
 {% endblock %}
