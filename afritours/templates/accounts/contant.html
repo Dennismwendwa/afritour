@@ -1,22 +1,69 @@
-{% extends "tours/layout.html" %}
-{% load static %}
-
-{% block contant %}
-
-
- <form action="{% url 'contant' %}" method="post">
-	 <p class="h4 mb-4">Contact us</p>
-{% csrf_token %}
-
-{{form}}
-
- <div class="text-center"><button type="submit">Send Message</button></div>
-
- {% for message in messages %}
-  <div class="sent-message">{{message}}</div>
-  {% endfor %}
-
-    </form>
-
+{% extends "tours/layout.html" %} {% load static %} {% block contant %}
+<div class="container contact">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div
+      class="col-md-8 my-column"
+      style="
+        background-image: url('{% static 'assets/img/slide5.jpg' %}');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <form action="{% url 'contant' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group contact-name-input">
+          <input
+            type="text"
+            name="name"
+            class="form-control"
+            id="name"
+            placeholder="Your Name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            id="email"
+            placeholder="Your Email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="subject"
+            id="subject"
+            placeholder="Subject"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <textarea
+            class="form-control"
+            name="message"
+            rows="5"
+            placeholder="Message"
+            required
+          ></textarea>
+        </div>
+        <div class="my-3">
+          <div class="error-message"></div>
+          {% for message in messages %}
+          <div class="sent-message">{{message}}</div>
+          {% endfor %}
+        </div>
+        <div class="text-center">
+          <button type="submit">Send Message</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
 
 {% endblock %}

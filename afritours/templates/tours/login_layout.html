@@ -110,62 +110,12 @@
         </nav>
         <!-- .navbar -->
 
-        <div class="position-relative">
-          <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
-          <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
-          <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
-
-          <i class="bi bi-list mobile-nav-toggle"></i>
-
-          <!-- ======= Search Form ======= -->
-          <div class="search-form-wrap js-search-form-wrap">
-            <form action="{% url 'search' %}" class="search-form" method="post">
-              <span class="icon bi-search"></span>
-              <input
-                type="text"
-                name="search"
-                placeholder="Search"
-                class="form-control"
-              />
-              <button
-                class="btn js-search-close"
-                type="submit"
-                placeholder="Searchbutton"
-              >
-                <span class="bi-x"></span>
-              </button>
-            </form>
-          </div>
-          <!-- End Search Form -->
-        </div>
+        <div class="position-relative"></div>
       </div>
     </header>
 
     <main id="main">
-      <section>
-        <form action="{% url 'search' %}" class="search-form" method="get">
-          {% csrf_token %}
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-md-6">
-                <div class="input-group">
-                  <input
-                    type="search"
-                    name="search"
-                    class="form-control rounded"
-                    placeholder="Search"
-                    aria-label="Search"
-                    aria-describedby="search-addon"
-                    required
-                  />
-                  <button type="submit" class="btn btn-outline-primary">
-                    Search
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
+     
       </section>
 
       {% block home %} {%endblock%}

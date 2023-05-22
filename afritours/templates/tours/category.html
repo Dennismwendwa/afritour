@@ -12,11 +12,21 @@
     <h1>{{post.title}}</h1>
     <hr />
 
-    <li>{{post.author.first_name}} - {{post.post_date}}</li>
+    <h5>{{post.author.first_name}} {{post.post_date}}</h5>
     <hr />
     <div>
-      <img src="{{post.image.url}}" height="450px" width="800px" alt="" class="" />
-      {{post.body}}
+      <div class="d-flex justify-content-center">
+        <img
+          src="{{post.image.url}}"
+          height="450px"
+          width="800px"
+          alt=""
+          class=""
+        />
+      </div>
+      <br />
+      <br />
+      <div>{{post.body}}</div>
       <br />
       <br />
       <br />

@@ -9,3 +9,47 @@
 .custom-margin {
   margin: 30px;
 }
+
+.my-column {
+  height: 650px; /* Adjust the height as desired */
+}
+
+.form-group {
+  margin-bottom: 15px; /* Adjust the spacing between input fields */
+}
+
+.contact-name-input {
+  margin-top: 15px;
+}
+
+.contact {
+  background-color: rgb(80, 167, 80);
+}
+
+.my-3 .sent-message {
+  color: black;
+  background-color: white;
+}
+
+.error-message {
+  background-color: red;
+}
+
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #6a11cb;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(
+    to right,
+    rgba(106, 17, 203, 1),
+    rgba(37, 117, 252, 1)
+  );
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(
+    to right,
+    rgba(106, 17, 203, 1),
+    rgba(37, 117, 252, 1)
+  );
+}

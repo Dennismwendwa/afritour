@@ -1,40 +1,9 @@
+{% extends "tours/layout.html"%}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+{% block home %}
 
-  <title>Afritours - {% block title %} {% endblock %}</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;
-  500&family=Inter:wght@400;500&family=Playfair+Display:ital,
-  wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css'%}+" rel="stylesheet">
-  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/aos/aos.css" rel="stylesheet'%}">
-
-  <!-- Template Main CSS Files -->
-  <link href="{% static 'assets/css/variables.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/css/more.css' %}" rel="stylesheet">
-
-</head>
-
-<body>
-
-  <!-- ======= Header ======= -->
+ <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
@@ -119,6 +88,7 @@
       <input type="search" id="form1" class="form-control" placeholder="Type query" aria-label="Search" />
     </div>
   </div>
+
 
 
   <main id="main">
@@ -359,24 +329,11 @@
                   <p class="mb-4 d-block">{{shimba.body|slice:"0:250"}}</p>
                 </div>
 
-                <div class="post-entry-1">
-                  <div class="post-meta"><span class="date">{{park.category}}</span> 
-		              <span class="mx-1">&bullet;</span> <span>{{park.post_date}}</span></div>
-                  <h2 class="mb-2"><a href="{% url 'article_detail' park.pk %}">{{park.title}}</a></h2>
-                  <span class="author mb-3 d-block">{{park.author.first_name}}</span>
-                </div>
-              </div>
-              <div class="col-lg-8">
-                <div class="post-entry-1">
-                  <a href="{% url 'article_detail' main_sub.pk%}"><img src="{{main_sub.image.url}}" alt=""
-	             	  class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">{{main_sub.category}}</span>
-		              <span class="mx-1">&bullet;</span> <span>{{main_sub.post_date}}</span></div>
-                  <h2 class="mb-2"><a href="{% url 'article_detail' main_sub.pk %}">{{main_sub.title}}</a></h2>
-                  <span class="author mb-3 d-block">{{main_sub.author.first_name}}</span>
-                  <p class="mb-4 d-block">{{main_sub.body|slice:"0:200" }}</p>  <h1>
-                </div>
-              </div>
+               here
+
+
+
+
             </div>
           </div>
           <div class="col-md-3">
@@ -410,121 +367,4 @@
   </main>
   <!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-
-    <div class="footer-content">
-      <div class="container">
-
-        <div class="row g-5">
-          <div class="col-lg-4">
-            <h3 class="footer-heading">About Afritours</h3>
-            <p>
-	              Discover your next travel adventure on our website, where we
-                showcase a variety of captivating destinations for you to
-                explore. Whether you're a seasoned globetrotter or a first-time
-                adventurer, we provide detailed descriptions, stunning photos,
-                and recommendations for the best places to visit. Find hidden
-                gems, immerse yourself in local traditions, and create
-                unforgettable memories. Our user-friendly interface makes it
-                easy to navigate through our extensive collection of
-                destinations and find the perfect place for your next tour.
-                Start your journey of discovery today!
-	             </p>
-            <p><a href="{% url 'aboutus' %}" class="footer-link-more">Learn More</a></p>
-          </div>
-          <div class="col-6 col-lg-2">
-            <h3 class="footer-heading">Navigation</h3>
-            <ul class="footer-links list-unstyled">
-              <li><a href="{% url 'home' %}"><i class="bi bi-chevron-right"></i> Home</a></li>
-              <li><a href="{% url 'allposts' %}"><i class="bi bi-chevron-right"></i> Blog</a></li>
-              <li><a href=""><i class="bi bi-chevron-right"></i> Categories</a></li>
-              <li><a href=""><i class="bi bi-chevron-right"></i> About us</a></li>
-              <li><a href=""><i class="bi bi-chevron-right"></i> Contact</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-lg-2">
-            <h3 class="footer-heading">Categories</h3>
-            <ul class="footer-links list-unstyled">
-
-               {% for items in cats %}
-                <li><a href="{% url 'category' items.pk %}">{{items.name}}</a></li>
-               {% endfor %}
-
-            </ul>
-          </div>
-
-          <div class="col-lg-4">
-            <h3 class="footer-heading">Recent Posts</h3>
-
-            <ul class="footer-links footer-blog-entry list-unstyled">
-		
-	          	{% for obj in recent %}
-              <li>
-                <a href="{% url 'article_detail' obj.pk %}" class="d-flex align-items-center">
-                  <img src="{{ obj.image.url }}" alt="" class="img-fluid me-3">
-                  <div>
-                    <div class="post-meta d-block"><span class="date">{{obj.category.name}}</span> 
-		                <span class="mx-1">&bullet;</span> <span>{{obj.post_date}}</span></div>
-                    <span>{{obj.title}}</span>
-                  </div>
-                </a>
-              </li>
-	              	{% endfor %}
-
-
-            </ul>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-legal">
-      <div class="container">
-
-        <div class="row justify-content-between">
-          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-            <div class="copyright">
-              © Copyright <strong><span>Afritours</span></strong> 2023. All Rights Reserved
-            </div>
-
-            <div class="credits">
-              Made with &#128147; by the  <a href="">Pydv</a>
-            </div>
-
-          </div>
-
-          <div class="col-md-6">
-            <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-
-  </footer>
-
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
-  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js'%}"></script>
-  <script src="{% static 'assets/vendor/glightbox/js/lightbox.min.js'%}"></script>
-  <script src="{% static 'assets/vendor/aos/aos.js'%}"></script>
-  <script src="{% static 'assets/vendor/php-email-form/validate.js'%}"></script>
-
-  <!-- Template Main JS File -->
-  <script src="{% static 'assets/js/main.js'%}"></script>
-
-</body>
-
-</html>
+{% endblock %}

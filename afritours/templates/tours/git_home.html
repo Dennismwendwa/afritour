@@ -79,15 +79,15 @@
           <li><a href="{% url 'aboutus' %}">About</a></li>
           <li><a href="{% url 'contant' %}">Contact</a></li>
 
-           {% if user.is_authenticated %}
+          {% if user.is_authenticated %}
                  <li class="hello_user">Hello, {{ user.first_name }}</li>
                  <li><a href="{% url 'logout'%}"> logout</a></li>
-                  {% else %}
+          {% else %}
                  <li><a href="{%url 'register'%}">Register</a></li>
                  <li><a href="{% url 'login'%}">login </a></li>
                  <!--<li><a href="{% url 'logout'%}"> logout</a></li>-->
-                  {% endif %}
-            
+          {% endif %}
+          
         </ul>
       </nav><!-- .navbar -->
 
@@ -149,25 +149,25 @@
                 <!--
                 <div class="swiper-slide">
                   <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image:
-	              	  url({% static 'assets/img/slide3.jpg'%});">
+		  url({% static 'assets/img/slide3.jpg'%});">
                     <div class="img-bg-inner">
                       <h2>13 Amazing Poems from Shel Silverstein with Valuable Life Lessons</h2>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est
-		                  mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam
-		                  obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
+		      mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam
+		      obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
                     </div>
                   </a>
                 </div>
 
                 <div class="swiper-slide">
                   <a href="single-post.html" class="img-bg d-flex align-items-end"
-		                style="background-image: url({% static 'assets/img/slide4.jpg'%});">
+		  style="background-image: url({% static 'assets/img/slide4.jpg'%});">
                     <div class="img-bg-inner">
                       <h2>9 Half-up/half-down Hairstyles for Long and Medium Hair</h2>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem
-		                    neque est mollitia! Beatae minima assumenda repellat harum vero, officiis
-		                   ipsam magnam obcaecati cumque maxime inventore repudiandae quidem
-		                    necessitatibus rem atque.</p>
+		      neque est mollitia! Beatae minima assumenda repellat harum vero, officiis
+		      ipsam magnam obcaecati cumque maxime inventore repudiandae quidem
+		      necessitatibus rem atque.</p>
                     </div>
                   </a>
                 </div> -->
@@ -206,16 +206,16 @@
               </a>
               <div>
                 <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;
-	            	</span> <span>Jul 5th '22</span></div>
+		</span> <span>Jul 5th '22</span></div>
                 <h3><a href="single-post.html">What is the son of Football Coach John Gruden,
-	            	Deuce Gruden doing Now?</a></h3>
+		Deuce Gruden doing Now?</a></h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio placeat 
-	              	exercitationem magni voluptates dolore. Tenetur fugiat voluptates quas,
-	              	nobis error deserunt aliquam temporibus sapiente,
-	              	laudantium dolorum itaque libero eos deleniti?</p>
+		exercitationem magni voluptates dolore. Tenetur fugiat voluptates quas,
+		nobis error deserunt aliquam temporibus sapiente,
+		laudantium dolorum itaque libero eos deleniti?</p>
                 <div class="d-flex align-items-center author">
                   <div class="photo"><img src="{% static 'assets/img/person-2.jpg'%}" alt="" 
-		              class="img-fluid"></div>
+		  class="img-fluid"></div>
                   <div class="name">
                     <h3 class="m-0 p-0">Wade Warren</h3>
                   </div>
@@ -227,19 +227,19 @@
               <div class="col-lg-4">
                 <div class="post-entry-1 border-bottom">
                   <a href="single-post.html"><img src="{% static 'assets/img/post-landscape-1.jpg'%}"
-		              alt="" class="img-fluid"></a>
+		  alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;
-		               </span> <span>Jul 5th '22</span></div>
+		  </span> <span>Jul 5th '22</span></div>
                   <h2 class="mb-2"><a href="single-post.html">11 Work From Home Part-Time
-		              Jobs You Can Do Now</a></h2>
+		  Jobs You Can Do Now</a></h2>
                   <span class="author mb-3 d-block">Jenny Wilson</span>
                   <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-		             Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+		  Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
                 </div>
 
                 <div class="post-entry-1">
                   <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;
-		              </span> <span>Jul 5th '22</span></div>
+		  </span> <span>Jul 5th '22</span></div>
                   <h2 class="mb-2"><a href="single-post.html">5 Great Startup Tips for Female Founders</a></h2>
                   <span class="author mb-3 d-block">Jenny Wilson</span>
                 </div>
@@ -247,14 +247,14 @@
               <div class="col-lg-8">
                 <div class="post-entry-1">
                   <a href="single-post.html"><img src="{% static 'assets/img/post-landscape-2.jpg'%}"
-	             	  alt="" class="img-fluid"></a>
+		  alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;
-	             	  </span> <span>Jul 5th '22</span></div>
+		  </span> <span>Jul 5th '22</span></div>
                   <h2 class="mb-2"><a href="single-post.html">How to Avoid Distraction and Stay
-	             	  Focused During Video Calls?</a></h2>
+		  Focused During Video Calls?</a></h2>
                   <span class="author mb-3 d-block">Jenny Wilson</span>
                   <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-		              Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+		  Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
                 </div>
               </div>
             </div>
@@ -263,49 +263,49 @@
           <div class="col-md-3">
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;
-	            </span> <span>Jul 5th '22</span></div>
+	      </span> <span>Jul 5th '22</span></div>
               <h2 class="mb-2"><a href="single-post.html">How to Avoid Distraction and Stay
-	           Focused During Video Calls?</a></h2>
+	      Focused During Video Calls?</a></h2>
               <span class="author mb-3 d-block">Jenny Wilson</span>
             </div>
 
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;
-	            </span> <span>Jul 5th '22</span></div>
+	      </span> <span>Jul 5th '22</span></div>
               <h2 class="mb-2"><a href="single-post.html">17 Pictures of Medium Length Hair
-	            in Layers That Will Inspire Your New Haircut</a></h2>
+	      in Layers That Will Inspire Your New Haircut</a></h2>
               <span class="author mb-3 d-block">Jenny Wilson</span>
             </div>
 
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;
-	            </span> <span>Jul 5th '22</span></div>
+	      </span> <span>Jul 5th '22</span></div>
               <h2 class="mb-2"><a href="single-post.html">9 Half-up/half-down Hairstyles
-	            for Long and Medium Hair</a></h2>
+	      for Long and Medium Hair</a></h2>
               <span class="author mb-3 d-block">Jenny Wilson</span>
             </div>
 
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;
-	            </span> <span>Jul 5th '22</span></div>
+	      </span> <span>Jul 5th '22</span></div>
               <h2 class="mb-2"><a href="single-post.html">Life Insurance And Pregnancy:
-	            A Working Mom’s Guide</a></h2>
+	      A Working Mom’s Guide</a></h2>
               <span class="author mb-3 d-block">Jenny Wilson</span>
             </div>
 
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;
-	           </span> <span>Jul 5th '22</span></div>
+	      </span> <span>Jul 5th '22</span></div>
               <h2 class="mb-2"><a href="single-post.html">The Best Homemade Masks for Face 
-	            (keep the Pimples Away)</a></h2>
+	      (keep the Pimples Away)</a></h2>
               <span class="author mb-3 d-block">Jenny Wilson</span>
             </div>
 
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;
-	            </span> <span>Jul 5th '22</span></div>
+	      </span> <span>Jul 5th '22</span></div>
               <h2 class="mb-2"><a href="single-post.html">10 Life-Changing Hacks Every
-	            Working Mom Should Know</a></h2>
+	      Working Mom Should Know</a></h2>
               <span class="author mb-3 d-block">Jenny Wilson</span>
             </div>
           </div>
@@ -325,7 +325,7 @@
           <div><a href="{% url 'allcategory' %}" class="more">All Categories</a></div>
         </div>
 
-        <div class="row">
+        < class="row">
           <div class="col-md-9 order-md-2">
 
             <!--main post at home page-->
@@ -336,7 +336,7 @@
               </a>
               <div>
                 <div class="post-meta"><span class="date"><a href="">{{main.category }}</a>
-	             	</span> <span class="mx-1">&bullet;</span> <span>{{main.post_date}}</span></div>
+		</span> <span class="mx-1">&bullet;</span> <span>{{main.post_date}}</span></div>
                 <h3><a href="{% url 'article_detail' main.pk %}">{{main.title }}</a></h3>
                 <p>{{main.body|slice:"0:200" }}</p>
                 <div class="d-flex align-items-center author">
@@ -349,35 +349,7 @@
             </div>
 
             <div class="row">
-              <div class="col-lg-4">
-                <div class="post-entry-1 border-bottom">
-                  <a href="{% url 'article_detail' shimba.pk %}"><img src="{{shimba.image.url}}" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">{{shimba.category}}</span> <span class="mx-1">&bullet;
-		              </span> <span>{{shimba.post_date}}</span></div>
-                  <h2 class="mb-2"><a href="{% url 'article_detail' shimba.pk %}">{{shimba.title}}</a></h2>
-                  <span class="author mb-3 d-block">{{shimba.author}}</span>
-                  <p class="mb-4 d-block">{{shimba.body|slice:"0:250"}}</p>
-                </div>
-
-                <div class="post-entry-1">
-                  <div class="post-meta"><span class="date">{{park.category}}</span> 
-		              <span class="mx-1">&bullet;</span> <span>{{park.post_date}}</span></div>
-                  <h2 class="mb-2"><a href="{% url 'article_detail' park.pk %}">{{park.title}}</a></h2>
-                  <span class="author mb-3 d-block">{{park.author.first_name}}</span>
-                </div>
-              </div>
-              <div class="col-lg-8">
-                <div class="post-entry-1">
-                  <a href="{% url 'article_detail' main_sub.pk%}"><img src="{{main_sub.image.url}}" alt=""
-	             	  class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">{{main_sub.category}}</span>
-		              <span class="mx-1">&bullet;</span> <span>{{main_sub.post_date}}</span></div>
-                  <h2 class="mb-2"><a href="{% url 'article_detail' main_sub.pk %}">{{main_sub.title}}</a></h2>
-                  <span class="author mb-3 d-block">{{main_sub.author.first_name}}</span>
-                  <p class="mb-4 d-block">{{main_sub.body|slice:"0:200" }}</p>  <h1>
-                </div>
-              </div>
-            </div>
+            
           </div>
           <div class="col-md-3">
 
@@ -395,16 +367,16 @@
            <!-- 
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">{{titles.category}}</span>
-	            <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+	      <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
               <h2 class="mb-2"><a href="single-post.html">17 Pictures of Medium Length Hair
-	            in Layers That Will Inspire Your New Haircut</a></h2>
+	      in Layers That Will Inspire Your New Haircut</a></h2>
               <span class="author mb-3 d-block">Jenny Wilson</span>
             </div> 
                -->
           </div>
         </div>
 
-      </div>
+      
     </section><!-- End Business Category Section -->
 
   </main>
@@ -420,17 +392,23 @@
           <div class="col-lg-4">
             <h3 class="footer-heading">About Afritours</h3>
             <p>
-	              Discover your next travel adventure on our website, where we
-                showcase a variety of captivating destinations for you to
-                explore. Whether you're a seasoned globetrotter or a first-time
-                adventurer, we provide detailed descriptions, stunning photos,
-                and recommendations for the best places to visit. Find hidden
-                gems, immerse yourself in local traditions, and create
-                unforgettable memories. Our user-friendly interface makes it
-                easy to navigate through our extensive collection of
-                destinations and find the perfect place for your next tour.
-                Start your journey of discovery today!
-	             </p>
+	    Welcome to our tours website, your ultimate destination for unforgettable
+	    travel experiences! Whether you're a seasoned globetrotter or a first-time adventurer,
+	    our website is your gateway to exploring the world's most captivating destinations.
+	    We curate a wide range of tours, catering to diverse interests, budgets, and travel styles.
+	    From enchanting cultural expeditions to thrilling outdoor adventures,
+	    our meticulously designed itineraries ensure that every moment of your journey is filled
+	    with awe and wonder. Discover hidden gems, immerse yourself in local traditions,
+	    and create lifelong memories as you embark on our expertly guided tours. 
+	    With our user-friendly interface, you can easily navigate through our extensive collection
+	    of destinations, read detailed descriptions, view stunning photos, and find the perfect tour
+	    that aligns with your dreams. Our team of knowledgeable travel experts is dedicated to
+	    providing unparalleled customer service, answering your queries, and assisting you in
+	    crafting your ideal itinerary. Whether you're longing to witness iconic landmarks, indulge
+	    in delectable cuisines, or simply unwind on pristine beaches, our tours website is your trusted
+	    companion in making your travel dreams a reality. Start your adventure today and let us guide
+	    you towards a world of discovery and exploration.
+	    </p>
             <p><a href="{% url 'aboutus' %}" class="footer-link-more">Learn More</a></p>
           </div>
           <div class="col-6 col-lg-2">
@@ -459,18 +437,18 @@
 
             <ul class="footer-links footer-blog-entry list-unstyled">
 		
-	          	{% for obj in recent %}
+		{% for obj in recent %}
               <li>
                 <a href="{% url 'article_detail' obj.pk %}" class="d-flex align-items-center">
                   <img src="{{ obj.image.url }}" alt="" class="img-fluid me-3">
                   <div>
                     <div class="post-meta d-block"><span class="date">{{obj.category.name}}</span> 
-		                <span class="mx-1">&bullet;</span> <span>{{obj.post_date}}</span></div>
+		    <span class="mx-1">&bullet;</span> <span>{{obj.post_date}}</span></div>
                     <span>{{obj.title}}</span>
                   </div>
                 </a>
               </li>
-	              	{% endfor %}
+		{% endfor %}
 
 
             </ul>

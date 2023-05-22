@@ -8,7 +8,7 @@ class Contact(models.Model):
 	name     = models.CharField(max_length=250)
 	email    = models.EmailField()
 	date     = models.DateField(auto_now_add=True)
-	feedback = models.CharField(max_length=250)
+	subject  = models.CharField(max_length=250, default="request details")
 	message  = models.TextField()
 
 	def __str__(self):

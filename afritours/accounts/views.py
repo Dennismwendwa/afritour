@@ -5,7 +5,7 @@ from tours.models import Category, Post
 from tours.views import category_fun
 from .forms import ContactForm
 from .models import Contact
-from datetime import date
+from datetime import date #not in use
 
 
 # Create your views here.
@@ -101,13 +101,13 @@ def contant(request):
 		if form.is_valid():
 			name = form.cleaned_data["name"]
 			email = form.cleaned_data["email"]
-			feedback = form.cleaned_data["feedback"]
 			message = form.cleaned_data["message"]
-			date = form.cleaned_data["date"]
-			
+			subject = form.cleaned_data["subject"]
+			print(name)
+			print(email)
+			print(message)
 			try:
-				contact = Contact.objects.create(name=name, email=email,
-						feedback=feedback, message=message, date=date)
+				contact = Contact.objects.create(name=name, email=email, message=message, date=date)
 				contact.save();
 				messages.success(request, "Your message was send successfully. Thank you!")
 				return redirect("contant");
@@ -119,7 +119,6 @@ def contant(request):
 		form = ContactForm()
 
 	return render(request, "accounts/contant.html", {
-			"form": form,
 			"cats": cats,
 			"recent": recent,
 			})
