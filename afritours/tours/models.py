@@ -25,7 +25,17 @@ class Post (models.Model):
 
         return self.title + ' | ' + str(self.author)
     
-    
+
+class Image (models.Model):
+	name_of_park = models.CharField(max_length=250, blank=True, null=True)
+	area_name = models.CharField(max_length=250)
+	date      = models.DateField(auto_now_add=True)
+	keywords  = models.CharField(max_length=300)
+	descption = models.TextField()
+	image     = models.ImageField(upload_to="area/image")
+
+	def __str__(self):
+		return "%s - %s - %s" % (self.name_of_park, self.area_name, self.date)
 
 
 

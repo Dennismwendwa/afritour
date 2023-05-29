@@ -2,7 +2,7 @@ from django.shortcuts import render, reverse, redirect
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView
-from .models import Post, Category
+from .models import Post, Category, Image
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -151,3 +151,49 @@ def search(request):
             "query": query,
         },
     )
+
+
+def images(request):
+
+	cats = category_fun()
+	recent = Post.objects.all()[:5]
+
+	image = Image.objects.all()
+
+	return render(request, "tours/images.html", {
+			"cats": cats,
+			"recent": recent,
+			"image": image,
+			})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

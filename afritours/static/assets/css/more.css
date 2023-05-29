@@ -57,3 +57,19 @@
 .home-footer {
   background-color: rgb(51, 138, 51);
 }
+
+/* css for images page */
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  /* Gap between columns */
+}
+
+.column {
+  flex-basis: calc(33.33% - 20px);
+  /* Three equal-width columns */
+  /* Styles for each column */
+}

@@ -10,6 +10,7 @@ urlpatterns = [
     path("category/<int:pk>", views.category, name="category"),
     path("search", views.search, name="search"),
     path("allcategories", views.allcategory, name="allcategory"),
+    path("images", views.images, name="images"),
 
 ]
 

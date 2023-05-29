@@ -1,0 +1,39 @@
+{% extends "tours/layout.html" %} {% load static %} {% block images %}
+
+<section id="gallery" class="gallery">
+  <div class="container-fluid">
+    <div class="row gy-4 justify-content-center">
+      {% for imag in image %}
+      <div class="col-xl-3 col-lg-4 col-md-6">
+        <div class="gallery-item">
+          <img
+            src="{{imag.image.url}}"
+            class=""
+            alt=""
+            height="300px"
+            width="450px"
+          />
+          <br />
+
+          <div>
+            {% if imag.name_of_park %}
+            <h4>{{imag.name_of_park}}</h4>
+            {% else %}
+            <h4>Shimba Hills National Park</h4>
+            {% endif %}
+          </div>
+
+          <div
+            class="gallery-links d-flex align-items-center justify-content-center"
+          >
+            <p>{{imag.descption|slice:"0:200"}}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      <!-- End Gallery Item -->
+    </div>
+  </div>
+</section>
+
+{% endblock %}
