@@ -13,7 +13,7 @@ from django.db.models import Q
 
 def city(request):
     # object = Post.objects.all()
-    return render(request, "tours/index_test.html", {})
+    return render(request, "tours/index_test.html", {})#this function not in use
 
 
 def home(request):
@@ -29,7 +29,7 @@ def home(request):
 
     return render(
         request,
-        "tours/home.html",
+        "tours/index_test.html",
         {
             "main": main,
             "main_sub": main_sub,
