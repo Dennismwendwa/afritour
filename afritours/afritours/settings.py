@@ -80,11 +80,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "afritours.wsgi.application"
 
-
+"""
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 DATABASE_URL = "postgresql://postgres:YD6Kkdm0QFHBZYBeXBaU@containers-us-west-117.railway.app:8059/railway"
-"""
+
 DATABASES = {
     "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
 }
