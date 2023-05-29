@@ -58,3 +58,25 @@
   background-color: rgb(51, 138, 51);
 }
 
+/* Overlay styles */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+}
+
+/* Enlarged image styles */
+.overlay img {
+  display: block;
+  max-width: 90%;
+  max-height: 90%;
+  width: 1000px;
+  height: 800px;
+  margin: 10% auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}

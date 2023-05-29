@@ -8,7 +8,7 @@
         <div class="gallery-item">
           <img
             src="{{imag.image.url}}"
-            class=""
+            class="popup-trigger"
             alt=""
             height="300px"
             width="450px"
@@ -22,7 +22,6 @@
             <h4>Shimba Hills National Park</h4>
             {% endif %}
           </div>
-
           <div
             class="gallery-links d-flex align-items-center justify-content-center"
           >
@@ -33,6 +32,10 @@
       {% endfor %}
       <!-- End Gallery Item -->
     </div>
+  </div>
+
+  <div class="overlay">
+    <img src="" alt="" />
   </div>
 </section>
 
