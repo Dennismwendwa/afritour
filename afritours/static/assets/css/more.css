@@ -68,6 +68,9 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Enlarged image styles */
@@ -77,6 +80,6 @@
   max-height: 90%;
   width: 1000px;
   height: 800px;
-  margin: 10% auto;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  margin: 0 auto;
 }
