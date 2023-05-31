@@ -17,13 +17,15 @@ def city(request):
 
 
 def home(request):
-    main = Post.objects.get(pk=2)
+    main = Post.objects.get(pk=1)
     main_sub = Post.objects.get(pk=4)
     shimba = Post.objects.get(pk=6)
     park = Post.objects.get(pk=5)
-    titles = Post.objects.all()[0:5]
+    lastpost = Post.objects.get(pk=3)
+    titles = Post.objects.all()[0:10]
     slides = Post.objects.all()[2:5]
     recent = Post.objects.all()[:5]
+    
 
     cats = category_fun()
 
@@ -37,9 +39,10 @@ def home(request):
             "shimba": shimba,
             "park": park,
             "slides": slides,
+            "lastpost": lastpost,
             "recent": recent,
             "cats": cats,
-        },
+        },  
     )
 
 

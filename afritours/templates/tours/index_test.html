@@ -167,7 +167,7 @@
 
            <div class="d-lg-flex post-entry-2">
               <a href="{% url 'article_detail' main.pk %}" class="me-4 thumbnail d-inline-block mb-4 mb-lg-0">
-                <img src="{{main.image.url}}" alt="" class="img-fluid">
+                <img src="{{main.image.url}}" alt="" height="450px" width="600px" class="img-fluid">
               </a>
               <div>
                 <div class="post-meta"><span class="date"><a href="">{{main.category }}</a>
@@ -194,25 +194,25 @@
                 </div>
 
                 <div class="post-entry-1">
-                  <div class="post-meta"><span class="date">{{shimba.category}}</span> <span class="mx-1">&bullet;</span> <span>{{shimba.post_date}}</span></div>
-                  <h2 class="mb-2"><a href="{% url 'article_detail' shimba.pk %}">{{shimba.title}}</a></h2>
-                  <span class="author mb-3 d-block">{{shimba.author}}</span>
+                  <div class="post-meta"><span class="date">{{park.category}}</span> <span class="mx-1">&bullet;</span> <span>{{park.post_date}}</span></div>
+                  <h2 class="mb-2"><a href="{% url 'article_detail' park.pk %}">{{park.title}}</a></h2>
+                  <span class="author mb-3 d-block">{{park.author}}</span>
                 </div>
               </div>
               <div class="col-lg-8">
                 <div class="post-entry-1">
                   <a href="single-post.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">{{shimba.category}}</span> <span class="mx-1">&bullet;</span> <span>{{shimba.post_date}}</span></div>
-                  <h2 class="mb-2"><a href="{% url 'article_detail' shimba.pk %}">{{shimba.title}}</a></h2>
-                  <span class="author mb-3 d-block">{{shimba.author}}</span>
-                  <p class="mb-4 d-block">{{shimba.body|slice:"0:250"}}</p>
+                  <div class="post-meta"><span class="date">{{main_sub.category}}</span> <span class="mx-1">&bullet;</span> <span>{{main_sub.post_date}}</span></div>
+                  <h2 class="mb-2"><a href="{% url 'article_detail' main_sub.pk %}">{{main_sub.title}}</a></h2>
+                  <span class="author mb-3 d-block">{{main_sub.author}}</span>
+                  <p class="mb-4 d-block">{{main_sub.body|slice:"0:250"}}</p>
                 </div>
 
                 <div class="post-entry-1">
-                  <div class="post-meta"><span class="date">{{shimba.category}}</span> <span class="mx-1">&bullet;</span> <span>{{shimba.post_date}}</span></div>
-                  <h2 class="mb-2"><a href="{% url 'article_detail' shimba.pk %}">{{shimba.title}}</a></h2>
-                  <span class="author mb-3 d-block">{{shimba.author}}</span>
-                  <p class="mb-4 d-block">{{shimba.body|slice:"0:250"}}</p>
+                  <div class="post-meta"><span class="date">{{lastpost.category}}</span> <span class="mx-1">&bullet;</span> <span>{{lastpost.post_date}}</span></div>
+                  <h2 class="mb-2"><a href="{% url 'article_detail' lastpost.pk %}">{{lastpost.title}}</a></h2>
+                  <span class="author mb-3 d-block">{{lastpost.author}}</span>
+                  <p class="mb-4 d-block">{{lastpost.body|slice:"0:250"}}</p>
                 </div>
               </div>
             </div>
