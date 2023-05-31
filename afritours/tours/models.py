@@ -13,6 +13,8 @@ class Category(models.Model):
 class Post (models.Model):
     title = models.CharField(max_length=250)
     title_tag = models.CharField(max_length=250, blank=True, null=True)
+    keywords  = models.CharField(max_length=250, blank=True, null=True)
+    meta_description = models.CharField(max_length=250, blank=True, null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField()
     post_date = models.DateField(auto_now_add=True)
