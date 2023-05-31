@@ -72,7 +72,7 @@ WSGI_APPLICATION = "afritours.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-DATABASE_URL = "postgresql://postgres:YD6Kkdm0QFHBZYBeXBaU@containers-us-west-117.railway.app:8059/railway"
+DATABASE_URL = "postgresql://postgres:6Pr4fbmqf2UJegjIJXNz@containers-us-west-186.railway.app:7166/railway"
 
 DATABASES = {
     "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
